@@ -1,4 +1,4 @@
-import AppRoutes  from "react-dom"
+import AppRoutes  from "./routes"
 
 function App() {
   return (

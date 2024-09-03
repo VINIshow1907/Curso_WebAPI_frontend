@@ -1,28 +1,28 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import LogoLogin from "../../assets/logoLogin.png";
-import { useNavigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 
-const SignIn = ({ onSignUpClick}) => {
-    const [email, setEmail] = useState ('');
-    const [Password, setPassword] = useState ('');
-    const [error, setError] =useState('');
-    const useNavigate = useNavigate();
-    const [showPassword, setShowPassword] = useState(false); //Estado para controlar visibilidade da senha
+const SignIn = ({ onSignUpClick }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate(); // Certifique-se de que está correto aqui
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:7266/api/User/Login',{
+            const response = await axios.post('http://localhost:7266/api/User/Login', {
                 email,
                 password,
             });
-            if (response.status ===200) {
-                Cookies.set('login', 'ativo', {expires:1}); //O cookie expira em 1 dia
-                Navigate('/inicio');
+            if (response.status === 200) {
+                Cookies.set('login', 'ativo', { expires: 1 });
+                navigate('/inicio'); // Usando navigate corretamente
             }
         } catch (error) {
             setError('Falha ao realizar o login. Verifique suas credenciais e tente novamente.');
@@ -47,17 +47,17 @@ const SignIn = ({ onSignUpClick}) => {
                 </h2>
             </div>
             {error && <div className='text-red-500 mb-4'>{error}</div>}
-            <form onSubmit={handleSubmit} className="'flex flex-col gap-y-4 mt-8 text-[#2d2d2d]">
+            <form onSubmit={handleSubmit} className='flex flex-col gap-y-4 mt-8 text-[#2d2d2d]'>
                 <h3 className="text-2xl">Email:</h3>
                 <input 
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className='h-[50px] border-[2px] border- [#d9d9d9] rounded-md px-3 text-lg'
+                className='h-[50px] border-[2px] border-[#d9d9d9] rounded-md px-3 text-lg'
                 required 
                 />
                 <h3 className='text-2xl'>Senha:</h3>
-                <div className="'relative">
+                <div className='relative'>
                     <input 
                     type={showPassword ? 'text' : 'password'}
                     value={password}
@@ -73,7 +73,7 @@ const SignIn = ({ onSignUpClick}) => {
                         {showPassword ? <Eye size={30} /> : <EyeSlash size={30}/>}
                     </button>
                 </div>
-                <button type='submit' className='h-[55px] bg-[#bd1a37] text-2x1 text-white mt-[70px]'>
+                <button type='submit' className='h-[55px] bg-[#bd1a37] text-2xl text-white mt-[70px]'>
                     Entrar
                 </button>
             </form>
@@ -85,6 +85,3 @@ const SignIn = ({ onSignUpClick}) => {
 }
 
 export default SignIn;
-
-
-

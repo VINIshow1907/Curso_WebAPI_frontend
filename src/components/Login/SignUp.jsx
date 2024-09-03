@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import LogoLogin from "../assets/logoLogin.png";
+import LogoLogin from "../../assets/logoLogin.png";
 import {Eye, EyeSlash} from "@phosphor-icons/react";
 
 const SignUp =({onSignInClick }) => {
@@ -48,7 +48,7 @@ const SignUp =({onSignInClick }) => {
         {error && <div className='text-red-500 mb-4'>{error}</div>}
     
        <form onSubmit={handleSubmit} className='flex flex-col gap-y-3 mt-8 text-[#2d2d2d]'>
-            <h3 className="text-2x1">Nome:</h3>
+            <h3 className="text-2xl">Nome:</h3>
             <input
                 type="text"
                 value={name}
@@ -64,7 +64,7 @@ const SignUp =({onSignInClick }) => {
                 className='h-[50px] border-[2px] border-[#d9d9d9] rounded-md px-3 text-lg'
                 required
             />
-            <h3 className='text-2x1'>Senha:</h3>
+            <h3 className='text-2xl'>Senha:</h3>
             <div className='relative'>
                 <input
                     type={showPassword ? 'text' : 'password'}
@@ -86,7 +86,7 @@ const SignUp =({onSignInClick }) => {
             </button>
        </form> 
        <div className='flex w-full justify-center pt-11'>
-            <img className='[h-60px] w-[139.35]' src={LogoLogin} alt="" />
+            <img className='h-[60px] w-[139.35]' src={LogoLogin} alt="Logo" />
        </div>
     </div>
     );

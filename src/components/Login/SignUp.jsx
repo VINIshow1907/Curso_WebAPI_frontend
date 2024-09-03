@@ -32,7 +32,7 @@ const SignUp =({onSignInClick }) => {
     return(
         <div className='flex flex-col w-3/4 min-h-screen px-12 justify-center'>
             <div className="flex justify-center mb-14" >
-                <h1 className='text-4xl text-[#2d2d2d] font-semibold'>Cire a sua conta</h1>
+                <h1 className='text-4xl text-[#2d2d2d] font-semibold'>Crie a sua conta</h1>
             </div>
             <div className='flex text-lg'>
                 <h2 className=''>

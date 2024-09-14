@@ -14,7 +14,7 @@ const SignUp =({onSignInClick }) => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('https://localhost:7266/api/User/Create', {
+            const response = await axios.post('https://localhost:7228/api/User/Create', {
                 imageUser: 'guigas',
                 nameUser: name,
                 emailUser: email,
@@ -23,7 +23,7 @@ const SignUp =({onSignInClick }) => {
             });
             
             if (response.status ===200) {
-                alert('Usuário cadastrado ocm sucesso!');
+                alert('Usuário cadastrado com sucesso!');
             }
         } catch (error) {
             setError('Falha ao cadastrar o usuário. Verifique os dados e tente novamente.');
